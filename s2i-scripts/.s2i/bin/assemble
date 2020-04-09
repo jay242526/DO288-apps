@@ -1,16 +1,21 @@
 #!/bin/bash
 
+echo "begin.."
+pwd
+
 set -e
 
 source ${HTTPD_CONTAINER_SCRIPTS_PATH}/common.sh
 
 echo "---> Enabling s2i support in httpd24 image"
 
+pwd
 config_s2i
 
 ######## CUSTOMIZATION STARTS HERE ############
 
 echo "---> Installing application source"
+pwd
 cp -Rf /tmp/src/*.html ./
 
 DATE=`date "+%b %d, %Y @ %H:%M %p"`
